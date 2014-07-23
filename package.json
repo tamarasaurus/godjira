@@ -1,0 +1,26 @@
+{
+  "name": "godjira",
+  "version": "0.0.1",
+  "description": "Jira UI replacement - add tasks, edit sprints, versions and view a dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tamarasaurus/godjira.git"
+  },
+  "keywords": [
+    "jira",
+    "replacement",
+    "sprints",
+    "issues",
+    "dashboard"
+  ],
+  "author": "Tamara Chahine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tamarasaurus/godjira/issues"
+  },
+  "homepage": "https://github.com/tamarasaurus/godjira"
+}
