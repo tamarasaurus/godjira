@@ -18,10 +18,9 @@ hr
 				if issue.fields.priority.id == 10
 					.glyphicon.glyphicon-fire
 				h4.panel-title
-					a(data-toggle="collapse" ,data-parent="#accordion" href="#collapse-"+issue.id)
-						strong= issue.key + " "
-						= issue.fields.summary
-					.glyphicon.glyphicon-chevron-down.pull-right
+					strong= issue.key + " "
+					= issue.fields.summary
+					a(data-toggle="collapse" ,data-parent="#accordion" href="#collapse-"+issue.id).glyphicon.glyphicon-chevron-down.pull-right
 					span.label.label-light.pull-right= issue.fields.issuetype.name.toLowerCase()
 					//- span.label.label-primary.pull-right= issue.fields.issuetype.name.toLowerCase()
 			.panel-collapse.collapse(id="collapse-"+issue.id)
@@ -29,4 +28,3 @@ hr
 					if issue.fields.description
 						h6 Description
 						p= issue.fields.description
-

@@ -84,6 +84,9 @@ app.get('/people/:nickname/issues', function(req, res) {
 });
 
 app.get('/people/:nickname', function(req, res) {
+
+	//   this.getLastSprintForRapidView = function(rapidViewId, callback) {
+
 	getUserDetails(req, res, function(response) {
 		res.render('person', {
 			'resource': response

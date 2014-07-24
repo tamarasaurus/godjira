@@ -80,6 +80,10 @@ h2.top{
     text-overflow: ellipsis;
 }
 
+.panel-title a{
+    text-decoration:none;
+}
+
 @-webkit-keyframes fire {
     0%   {color: #FFDE00;}
     10%  {color: #FFB700;}
@@ -107,3 +111,4 @@ h2.top{
     float:left;
     -webkit-animation: fire 2s infinite;
 }
+
