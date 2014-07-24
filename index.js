@@ -73,28 +73,54 @@ var getUserDetails = function(req, res, callback, open) {
 		if (!_.isUndefined(callback)) {
 			callback(response);
 		}
-
 	});
 };
 
 app.get('/people/:nickname/issues', function(req, res) {
 	getUserDetails(req, res, function(response) {
+		console.log(response);
+		// .fields.customfield_10540
 		res.json(response);
 	});
 });
 
 app.get('/people/:nickname', function(req, res) {
-
-	//   this.getLastSprintForRapidView = function(rapidViewId, callback) {
-
 	getUserDetails(req, res, function(response) {
+
+
+		console.log(response.fields.customfield_10540);
+
 		res.render('person', {
 			'resource': response
 		});
 	});
 });
 
+app.get('/rapid', function(req, res) {
+	jira.findRapidView('OPEN', function(e, response){
+		console.log(response);
+		// res.json(response);
+	});
+});
 
+app.get('/sprint/:rapidviewid', function(req, res) {
+	jira.getSprint(req.params.rapidviewid, function(e, response){
+		res.json(response);
+	});
+});
+
+
+//  rest/greenhopper/1.0/xboard/work/allData/?rapidViewId=121
+
+		// jira.getLastSprintForRapidView(req.params.id, function(e, response, body) {
+	// 	res.json(response);
+	// });
+// });
+// app.get('/people/:nickname/issues', function(req, res) {
+// 	getUserDetails(req, res, function(response) {
+// 		res.json(response);
+// 	});
+// });
 
 var server = app.listen(3000, function() {
 	console.log('Listening on port %d', server.address().port);
