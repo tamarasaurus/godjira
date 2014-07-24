@@ -86,10 +86,7 @@ app.get('/people/:nickname/issues', function(req, res) {
 
 app.get('/people/:nickname', function(req, res) {
 	getUserDetails(req, res, function(response) {
-
-
-		console.log(response.fields.customfield_10540);
-
+		console.log(response);
 		res.render('person', {
 			'resource': response
 		});
@@ -98,8 +95,7 @@ app.get('/people/:nickname', function(req, res) {
 
 app.get('/rapid', function(req, res) {
 	jira.findRapidView('OPEN', function(e, response){
-		console.log(response);
-		// res.json(response);
+		res.json(response);
 	});
 });
 
