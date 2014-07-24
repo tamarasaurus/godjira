@@ -1,0 +1,21 @@
+.row
+	.col-xs-8
+		h2.pull-left.top Issues
+	.col-xs-4
+		.btn-group.pull-right
+			button.btn.btn-default.btn-sm.dropdown-toggle(type="button" data-toggle="dropdown") created&nbsp;
+				span.caret
+			ul.dropdown-menu(role="menu")
+				li
+					a priority
+				li
+					a updated
+hr
+ul.task-list
+	each issue in resource.issues
+		li(data-priority=issue.fields.priority.id)
+			a(href="")= issue.key + ': ' + issue.fields.summary
+			br
+			small= issue.fields.issuetype.name
+			br
+			p= issue.fields.description

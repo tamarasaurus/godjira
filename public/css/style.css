@@ -1,0 +1,33 @@
+.navbar{
+    border-radius: 0;
+    height: 44px;
+    padding: 0;
+    min-height: 44px;
+}
+
+.navbar-brand{
+    height: 44px;
+    padding: 10px;
+}
+
+h2.top{
+    padding:0;
+    margin:0;
+}
+
+
+.task-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.task-list li{
+    list-style:none;
+    text-indent:0;
+    padding:0;
+    margin:0;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-bottom:1px #ccc solid;
+}

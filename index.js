@@ -20,6 +20,7 @@ var project = new Project();
 
 app.set('views', __dirname + '/views/');
 app.set('view engine', 'jade');
+app.use(express.static(__dirname + '/public'));
 
 // put routes in a separate file
 // make another file to parse route params
@@ -36,7 +37,7 @@ app.get('/project/:key', function(req, res) {
 
 // order options: created/updated/priority
 
-var getUserParams = function(req) {
+var getUserParams = function(req, open) {
 	var username = user.getUsername(req.params.nickname, config.friends);
 	var open = false;
 	var opts = {
@@ -66,8 +67,8 @@ var getUserParams = function(req) {
 	};
 };
 
-var getUserDetails = function(req, res, callback) {
-	var params = getUserParams(req, res);
+var getUserDetails = function(req, res, callback, open) {
+	var params = getUserParams(req, res, open);
 	jira.getUsersIssues(params.username, params.opts, params.open, function(e, response, body) {
 		if (!_.isUndefined(callback)) {
 			callback(response);
@@ -84,13 +85,10 @@ app.get('/people/:nickname/issues', function(req, res) {
 
 app.get('/people/:nickname', function(req, res) {
 	getUserDetails(req, res, function(response) {
-		res.render('list', {
+		res.render('person', {
 			'resource': response
 		});
 	});
-
-
-
 });
 
 
