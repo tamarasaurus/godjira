@@ -8,7 +8,7 @@ instructions
 =======
 
 1. Install node
-2. Clone from git https://github.com/tamarasaurus/godjira or npm - ```sudo npm install godjira```
+2. Clone from git https://github.com/tamarasaurus/godjira
 3. Install dependencies ```npm install```
 4. You need to make a config.js file and drop it into the godjira directory, it should look like this:
 
