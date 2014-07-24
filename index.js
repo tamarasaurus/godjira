@@ -36,7 +36,7 @@ app.get('/project/:key', function(req, res) {
 
 // order options: created/updated/priority
 
-app.get('/people/:nickname/issues', function(req, res) {
+var getUserParams = function(req) {
 	var username = user.getUsername(req.params.nickname, config.friends);
 	var open = false;
 	var opts = {
@@ -59,10 +59,38 @@ app.get('/people/:nickname/issues', function(req, res) {
 	if (!_.isUndefined(req.query.sortby)) {
 		opts.sort = req.query.sortby;
 	}
+	return {
+		username: username,
+		opts: opts,
+		open: open
+	};
+};
 
-	jira.getUsersIssues(username, opts, open, function(e, response, body) {
+var getUserDetails = function(req, res, callback) {
+	var params = getUserParams(req, res);
+	jira.getUsersIssues(params.username, params.opts, params.open, function(e, response, body) {
+		if (!_.isUndefined(callback)) {
+			callback(response);
+		}
+
+	});
+};
+
+app.get('/people/:nickname/issues', function(req, res) {
+	getUserDetails(req, res, function(response) {
 		res.json(response);
 	});
+});
+
+app.get('/people/:nickname', function(req, res) {
+	getUserDetails(req, res, function(response) {
+		res.render('list', {
+			'resource': response
+		});
+	});
+
+
+
 });
 
 
