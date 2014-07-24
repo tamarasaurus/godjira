@@ -1,7 +1,7 @@
 .row
-	.col-xs-8
+	.col-sm-8
 		h2.pull-left.top Issues
-	.col-xs-4
+	.col-sm-4
 		.btn-group.pull-right
 			button.btn.btn-default.btn-sm.dropdown-toggle(type="button" data-toggle="dropdown") created&nbsp;
 				span.caret
@@ -11,11 +11,22 @@
 				li
 					a updated
 hr
-ul.task-list
+.panel-group(id="accordion")
 	each issue in resource.issues
-		li(data-priority=issue.fields.priority.id)
-			a(href="")= issue.key + ': ' + issue.fields.summary
-			br
-			small= issue.fields.issuetype.name
-			br
-			p= issue.fields.description
+		.panel.panel-default
+			.panel-heading(class="priority-"+issue.fields.priority.id)
+				if issue.fields.priority.id == 10
+					.glyphicon.glyphicon-fire
+				h4.panel-title
+					a(data-toggle="collapse" ,data-parent="#accordion" href="#collapse-"+issue.id)
+						strong= issue.key + " "
+						= issue.fields.summary
+					.glyphicon.glyphicon-chevron-down.pull-right
+					span.label.label-light.pull-right= issue.fields.issuetype.name.toLowerCase()
+					//- span.label.label-primary.pull-right= issue.fields.issuetype.name.toLowerCase()
+			.panel-collapse.collapse(id="collapse-"+issue.id)
+				.panel-body
+					if issue.fields.description
+						h6 Description
+						p= issue.fields.description
+

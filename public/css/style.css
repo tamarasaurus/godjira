@@ -31,3 +31,79 @@ h2.top{
     padding-bottom:10px;
     border-bottom:1px #ccc solid;
 }
+
+.navbar-brand{
+    margin-left: -10px !important;
+}
+
+.panel-title{
+    font-size:15px;
+}
+
+
+.priority-5{
+    border-left: 10px #18bc9c solid !important;
+}
+
+.priority-4{
+   border-left: 10px #f39c12 solid !important;
+}
+
+.priority-3{
+    border-left: 10px #e74c3c solid !important;
+}
+
+.priority-10{
+    border-left: 10px #000 solid !important;
+}
+
+.panel-body h6{
+    margin:0;
+    padding:0;
+    border-bottom: 1px #eee solid;
+    padding-bottom:10px;
+    margin-bottom:10px;
+    font-size:10px;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+
+.panel-title{
+    height: 15px;
+}
+.panel-title a{
+    float:left;
+    max-width: 60%;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@-webkit-keyframes fire {
+    0%   {color: #FFDE00;}
+    10%  {color: #FFB700;}
+    20%  {color: #FF6900;}
+    30%  {color: #FF0300;}
+    40%  {color: #400900; }
+    50%  {color: #FF0300; }
+    60%  {color: #FF6900; }
+    70%  {color: #FFB700; }
+    80%  {color: #FFDE00; }
+    90%  {color: #FFB700; }
+    100%  {color: #FF6900; }
+}
+
+.panel .label.label-light{
+    background:#fff;
+    color: #95a5a6;
+    font-weight:300;
+    margin-right:10px;
+}
+
+.panel .glyphicon-fire{
+    margin-left:-5px;
+    padding-right:5px;
+    float:left;
+    -webkit-animation: fire 2s infinite;
+}
