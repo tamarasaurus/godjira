@@ -1,6 +1,6 @@
 {
   "name": "godjira",
-  "version": "0.0.5",
+  "version": "0.0.51",
   "description": "Jira UI replacement - add tasks, edit sprints, versions and view a dashboard",
   "main": "index.js",
   "scripts": {

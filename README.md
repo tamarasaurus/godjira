@@ -10,4 +10,16 @@ instructions
 1. Install node
 2. Clone from git https://github.com/tamarasaurus/godjira or npm - ```sudo npm install godjira```
 3. Install dependencies ```npm install```
-4. Run ```node index``` at ```http://localhost:3000```
+4. You need to make a config.js file and drop it into the godjira directory, it should look like this:
+
+```javascript
+    module.exports = {
+        host: 'YOUR_HOST_NAME',
+        port: 'YOUR_PORT',
+        user: 'YOUR_JIRA_USERNAME',
+        password: 'YOUR_JIRA_PASSWORD'
+    };
+
+```
+
+5. Run ```node index``` : ```http://localhost:3000```
