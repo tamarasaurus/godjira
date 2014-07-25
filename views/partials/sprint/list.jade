@@ -1,0 +1,18 @@
+.panel-group(id="accordion")
+    each issue in issues
+        .panel.panel-default
+            .panel-heading(class='status-'+issue.status.name.toLowerCase().replace(' ', '')+" priority-"+issue.fields.priority.name.toLowerCase())
+                if issue.fields.priority.name.toLowerCase() == 'blocker'
+                    .glyphicon.glyphicon-fire
+                h4.panel-title
+                    strong=issue.key + " "
+                    span.truncate
+                        a(href='http://'+host+'/browse/'+issue.key)= issue.fields.summary
+                    a(data-toggle="collapse" ,data-parent="#accordion" href="#collapse-"+issue.id).glyphicon.glyphicon-chevron-down.pull-right
+                    span.label.label-light.pull-right= issue.fields.story_points+" points"
+            .panel-collapse.collapse(id="collapse-"+issue.id)
+                .panel-body
+                    if issue.fields.description
+                        h6 Description
+                        p= issue.fields.description
+

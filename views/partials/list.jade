@@ -1,6 +1,6 @@
 .row
 	.col-sm-8
-		h2.pull-left.top Issues
+		h2.pull-left.top= title
 	.col-sm-4
 		.btn-group.pull-right
 			button.btn.btn-default.btn-sm.dropdown-toggle(type="button" data-toggle="dropdown") created&nbsp;
@@ -12,17 +12,16 @@
 					a updated
 hr
 .panel-group(id="accordion")
-	each issue in resource.issues
+	each issue in issues
 		.panel.panel-default
-			.panel-heading(class="priority-"+issue.fields.priority.id)
-				if issue.fields.priority.id == 10
+			.panel-heading(class='status-'+issue.fields.status.name.toLowerCase().replace(' ', '')+" priority-"+issue.fields.priority.name.toLowerCase())
+				if issue.fields.priority.name.toLowerCase() == 'blocker'
 					.glyphicon.glyphicon-fire
 				h4.panel-title
 					strong= issue.key + " "
-					= issue.fields.summary
+					span.truncate= issue.fields.summary
 					a(data-toggle="collapse" ,data-parent="#accordion" href="#collapse-"+issue.id).glyphicon.glyphicon-chevron-down.pull-right
 					span.label.label-light.pull-right= issue.fields.issuetype.name.toLowerCase()
-					//- span.label.label-primary.pull-right= issue.fields.issuetype.name.toLowerCase()
 			.panel-collapse.collapse(id="collapse-"+issue.id)
 				.panel-body
 					if issue.fields.description

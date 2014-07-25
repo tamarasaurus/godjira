@@ -41,20 +41,32 @@ h2.top{
 }
 
 
-.priority-5{
+.priority-5,
+.priority-low{
     border-left: 10px #18bc9c solid !important;
 }
 
-.priority-4{
+.priority-4,
+.priority-medium{
    border-left: 10px #f39c12 solid !important;
 }
 
-.priority-3{
+.priority-3,
+.priority-high{
     border-left: 10px #e74c3c solid !important;
 }
 
-.priority-10{
+.priority-10,
+.priority-blocker{
     border-left: 10px #000 solid !important;
+}
+
+.priority-critical {
+    border-left: 10px red solid !important;
+}
+
+.priority-trivial {
+    border-left: 10px #3498db solid !important;
 }
 
 .panel-body h6{
@@ -71,7 +83,17 @@ h2.top{
 .panel-title{
     height: 15px;
 }
-.panel-title a{
+
+.panel-title strong{
+    margin-right: 10px;
+    float: left;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 16px;
+    margin-left: -5px;
+    color: #95a5a6;
+}
+.panel-title span.truncate{
     float:left;
     max-width: 60%;
     overflow: hidden;
@@ -80,8 +102,26 @@ h2.top{
     text-overflow: ellipsis;
 }
 
+.panel-title span.truncate a{
+    color: #2c3e50;
+}
+
+
+.panel-title span.truncate a:hover{
+    text-decoration:underline;
+}
+
 .panel-title a{
     text-decoration:none;
+
+}
+
+
+.panel-title span.name{
+    float:left;
+    font-weight:bold;
+    font-size:14px;
+    padding-right:10px;
 }
 
 @-webkit-keyframes fire {
@@ -106,9 +146,21 @@ h2.top{
 }
 
 .panel .glyphicon-fire{
-    margin-left:-5px;
-    padding-right:5px;
-    float:left;
+    margin-left: -5px;
+    padding-right: 10px;
+    float: left;
     -webkit-animation: fire 2s infinite;
 }
 
+
+.status-resolved,
+.status-closed,
+.status-done{
+    opacity: 0.4;
+}
+
+.status-resolved span,
+.status-closed span,
+.status-done span{
+    text-decoration:line-through;
+}
