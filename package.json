@@ -1,34 +1,34 @@
 {
-  "name": "godjira",
-  "version": "0.0.6",
-  "description": "Jira UI replacement - add tasks, edit sprints, versions and view a dashboard",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tamarasaurus/godjira.git"
-  },
-  "keywords": [
-    "jira",
-    "replacement",
-    "sprints",
-    "issues",
-    "dashboard"
-  ],
-  "author": "Tamara Chahine",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tamarasaurus/godjira/issues"
-  },
-  "homepage": "https://github.com/tamarasaurus/godjira",
-  "dependencies": {
-    "bootstrap": "^3.2.0",
-    "express": "^4.6.1",
-    "jade": "^1.4.2",
-    "jira-tamarasaurus": "^0.6.0",
-    "string": "^1.9.0",
-    "underscore": "^1.6.0"
-  }
+	"name": "godjira",
+	"version": "0.0.6",
+	"description": "Jira UI replacement - add tasks, edit sprints, versions and view a dashboard",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tamarasaurus/godjira.git"
+	},
+	"keywords": [
+		"jira",
+		"replacement",
+		"sprints",
+		"issues",
+		"dashboard"
+	],
+	"author": "Tamara Chahine",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/tamarasaurus/godjira/issues"
+	},
+	"homepage": "https://github.com/tamarasaurus/godjira",
+	"dependencies": {
+		"bootstrap": "^3.2.0",
+		"express": "^4.6.1",
+		"jade": "^1.4.2",
+		"jira-tamarasaurus": "^0.6.0",
+		"string": "^1.9.0",
+		"underscore": "^1.6.0"
+	}
 }
