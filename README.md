@@ -13,6 +13,7 @@ Query a person's issues - {name} can be nickname or jira username
 View the issues for the active sprint grouped by person and ordered by status
 ```http://localhost:3000/sprints/latest```
 
+
 instructions
 =======
 
@@ -23,12 +24,15 @@ instructions
 
 ```javascript
     module.exports = {
-        host: 'YOUR_HOST_NAME',
-        port: 'YOUR_PORT',
-        user: 'YOUR_JIRA_USERNAME',
-        password: 'YOUR_JIRA_PASSWORD'
+        host: '',
+        port: 'keep empty',
+        user: '',
+        password: '',
+        project: {
+            name: '',
+            key: ''
+        }
     };
-
 ```
 
 5. Run ```node index``` : ```http://localhost:3000```
