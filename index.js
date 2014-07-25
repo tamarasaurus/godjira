@@ -64,10 +64,10 @@ app.get('/people/:nickname', function(req, res) {
 	});
 });
 
-app.get('/rapid', function(req, res) {
+app.get('/activeboard', function(req, res) {
 	jira.findRapidView(function(response){
-		var rapids = rapid.getRapidsFromProject(response, config.project);
-		res.json(rapids);
+		var view = rapid.getActive(rapid.getRapidsFromProject(response, config.project));
+		res.json(view);
 	});
 });
 
