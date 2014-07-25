@@ -9,6 +9,7 @@ var app = express();
 // Parsers
 var Project = require('./lib/parser/project');
 var User = require('./lib/parser/user');
+var Rapid = require('./lib/parser/rapid');
 
 var Jira = require('jira-tamarasaurus').JiraApi;
 var jira = new Jira('https', config.host, config.port, config.user, config.password, '2');
@@ -16,6 +17,7 @@ var jira = new Jira('https', config.host, config.port, config.user, config.passw
 
 var user = new User();
 var project = new Project();
+var rapid = new Rapid();
 
 
 app.set('views', __dirname + '/views/');
@@ -35,40 +37,9 @@ app.get('/project/:key', function(req, res) {
 	});
 });
 
-// order options: created/updated/priority
-
-var getUserParams = function(req, open) {
-	var username = user.getUsername(req.params.nickname, config.friends);
-	var open = false;
-	var opts = {
-		order: 'created',
-		sort: 'asc'
-	};
-
-	if (!username) {
-		username = req.params.nickname;
-	}
-
-	if (!_.isUndefined(req.query.status)) {
-		open = true;
-	}
-
-	if (!_.isUndefined(req.query.orderby)) {
-		opts.order = req.query.orderby;
-	}
-
-	if (!_.isUndefined(req.query.sortby)) {
-		opts.sort = req.query.sortby;
-	}
-	return {
-		username: username,
-		opts: opts,
-		open: open
-	};
-};
 
 var getUserDetails = function(req, res, callback, open) {
-	var params = getUserParams(req, res, open);
+	var params = user.getParams(req, open, config);
 	jira.getUsersIssues(params.username, params.opts, params.open, function(e, response, body) {
 		if (!_.isUndefined(callback)) {
 			callback(response);
@@ -94,8 +65,9 @@ app.get('/people/:nickname', function(req, res) {
 });
 
 app.get('/rapid', function(req, res) {
-	jira.findRapidView('OPEN', function(e, response){
-		res.json(response);
+	jira.findRapidView(function(response){
+		var rapids = rapid.getRapidsFromProject(response, config.project);
+		res.json(rapids);
 	});
 });
 
@@ -106,6 +78,7 @@ app.get('/sprint/:rapidviewid', function(req, res) {
 });
 
 
+// https://abcdevelop.jira.com/rest/greenhopper/1.0/rapidviewconfig/editmodel.json?rapidViewId=121
 //  rest/greenhopper/1.0/xboard/work/allData/?rapidViewId=121
 
 		// jira.getLastSprintForRapidView(req.params.id, function(e, response, body) {
