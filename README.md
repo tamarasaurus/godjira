@@ -35,4 +35,4 @@ instructions
     };
 ```
 
-5. Run ```node index``` : ```http://localhost:3000```
+5. Run ```npm update godjira```, then ```node index``` : ```http://localhost:3000```
