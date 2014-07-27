@@ -7,7 +7,7 @@ Jira UI replacement  - add tasks, edit sprints, versions and view a dashboard
 routes
 =======
 
-Query a person's issues - {name} can be nickname or jira username
+Query a person's issues -  name can be nickname or jira username
 ```http://localhost:3000/people/{name}```
 
 View the issues for the active sprint grouped by person and ordered by status
