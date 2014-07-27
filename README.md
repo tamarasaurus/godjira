@@ -28,6 +28,7 @@ instructions
         port: 'keep empty',
         user: '',
         password: '',
+        //the main project in which the current sprint is active (currently necessary to specify becuse of the way that the jira rest api is structured
         project: {
             name: '',
             key: ''
@@ -36,3 +37,11 @@ instructions
 ```
 
 5. Run ```npm update godjira```, then ```node index``` : ```http://localhost:3000```
+
+roadmap
+========
+
+* turn app into a sail.js project
+* implement user options db storage
+* remove node-jira as a dependency and rewrite jira api as a separate module
+* design and develop ui for viewing a project and sprint dashboard
