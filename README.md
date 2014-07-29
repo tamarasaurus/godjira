@@ -42,7 +42,9 @@ instructions
 roadmap
 ========
 
-* turn app into a sail.js project
-* implement user options db storage
-* remove node-jira as a dependency and rewrite jira api as a separate module
+* ~~turn app into a sail.js project~~
+* ~~implement user options db storage~~
+* add a settings page for users to choose the project from the hosted jira instance
+* create controllers and actions for people, projects nd sprints
+* remove node-jira as a dependency and write a new jira api wrapper
 * design and develop ui for viewing a project and sprint dashboard
