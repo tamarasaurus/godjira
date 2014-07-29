@@ -54,8 +54,12 @@ module.exports.routes = {
 
   'get /login': "AuthController.login",
   'post /login': 'AuthController.process',
-  'get /logout': 'AuthController.logout'
-  
+  'get /logout': 'AuthController.logout',
+
+  'get /register': 'RegisterController.show',
+  'post /register': 'UserController.create'
+
+
   /*
   // But what if you want your home page to display
   // a signup form located at `views/user/signup.ejs`?
@@ -183,4 +187,3 @@ module.exports.routes = {
  * Finally, if nothing else matched, the default 404 handler is triggered.
  * See `config/404.js` to adjust your app's 404 logic.
  */
-
