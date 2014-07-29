@@ -50,8 +50,12 @@ module.exports.routes = {
   '/people/:username': {
     controller: 'PeopleController',
     action: 'show'
-  }
+  },
 
+  'get /login': "AuthController.login",
+  'post /login': 'AuthController.process',
+  'get /logout': 'AuthController.logout'
+  
   /*
   // But what if you want your home page to display
   // a signup form located at `views/user/signup.ejs`?
