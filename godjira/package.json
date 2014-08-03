@@ -6,6 +6,7 @@
   "dependencies": {
     "bcrypt": "^0.7.8",
     "ejs": "0.8.4",
+    "godjira-wrapper": "^1.0.1",
     "grunt": "0.4.1",
     "jade": "^1.5.0",
     "optimist": "0.3.4",
