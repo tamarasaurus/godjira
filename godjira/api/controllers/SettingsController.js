@@ -29,7 +29,6 @@ module.exports = {
     update: function(req, res) {
         console.log('update', req.user);
 
-
         User.findOne(req.user[0].id).done(function(error, u) {
 
             if(error){
@@ -47,25 +46,6 @@ module.exports = {
                 }
             });
         });
-
-
-
-        // if(req.body.email) {
-        //     // validate whether the email address is valid?
-
-        //     // Then save it to the object.
-        //     user.email = req.body.email;
-        // }
-        // // Repeat for each eligible attribute, etc.
-
-        // user.save(function(error) {
-        //     if(error) {
-        //         // do something with the error.
-        //     } else {
-        //         // value saved!
-        //         req.send(user);
-        //     }
-        // });
     },
 
 

@@ -17,12 +17,21 @@
 
 module.exports = {
 
+	destroyAll: function(req, res) {
+		User.find().done(function(err, users) {
+			for (var i = 0; i < users.length; i++) {
+				users[i].destroy(function(err) {
+					console.log(err);
+				});
+			}
+		});
+	},
 
-  /**
-   * Overrides for the settings in `config/controllers.js`
-   * (specific to UserController)
-   */
-  _config: {}
+	/**
+	 * Overrides for the settings in `config/controllers.js`
+	 * (specific to UserController)
+	 */
+	_config: {}
 
 
 };

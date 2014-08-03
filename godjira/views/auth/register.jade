@@ -1,12 +1,15 @@
 form(action='/register', method='post')
-	fieldset
-		label Jira username:
-		input(type='text', name='username')
-		br
-		label Jira password:
-		input(type='password', name='password')
-		br
-		label Nickname:
-		input(type='text', name='nickname')
-		br
-		input(type='submit', value='Register')
+    fieldset
+        label JIRA host:
+        input(type="url", name="jira_host", placeholder='jira host')
+        br
+        label Jira username:
+        input(type='text', name='username')
+        br
+        label Jira password:
+        input(type='password', name='password')
+        br
+        label Nickname:
+        input(type='text', name='nickname')
+        br
+        input(type='submit', value='Register')

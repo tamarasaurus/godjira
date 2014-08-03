@@ -14,6 +14,10 @@ module.exports = {
 			type: 'string',
 			required: true
 		},
+		jira_host: {
+			type: 'string',
+			required: true
+		},
 		project_name: {
 			type: 'string'
 		},
