@@ -1,0 +1,10 @@
+h2= 'Welcome '+username
+form(action='/settings', method='post')
+    fieldset
+        label Project name
+        input(type='text', name='project_name' placeholder="Project name")
+        br
+        label Project key
+        input(type='text', name='project_key' placeholder="Project key")
+        br
+        input(type='submit', value='Update')

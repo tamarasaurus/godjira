@@ -31,6 +31,11 @@ module.exports = {
 		}
 	},
 
+	beforeUpdate: function(user, cb) {
+		console.log('before update');
+		cb();
+	},
+
 	beforeCreate: function(user, cb) {
 		bcrypt.genSalt(10, function(err, salt) {
 			bcrypt.hash(user.password, salt, function(err, hash) {
