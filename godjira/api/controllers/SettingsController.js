@@ -16,11 +16,13 @@
  */
 
 var _ = require('underscore');
+var jira = require('godjira-wrapper');
 
 module.exports = {
 
 
     show: function(req, res) {
+        console.log(jira);
         res.view('settings/show', {
             username: req.user[0].nickname
         });
