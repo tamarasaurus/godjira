@@ -1,12 +1,13 @@
 var passport = require('passport');
+
 module.exports = {
 	login: function(req, res) {
 		res.view('auth/login');
 	},
 
 	process: function(req, res) {
-		console.log(req.params);
-		passport.authenticate('local', function(err, user, info) {
+		passport.authenticate('local', function(err, user) {
+
 			if ((err) || (!user)) {
 				res.redirect('/login');
 				return;
@@ -15,8 +16,7 @@ module.exports = {
 				if (err) {
 					res.redirect('/login');
 				}
-
-				return res.redirect('/');
+				return res.redirect('/settings');
 			});
 		})(req, res);
 	},

@@ -16,47 +16,52 @@
  */
 
 var _ = require('underscore');
-var jira = require('godjira-wrapper');
-
 module.exports = {
+	show: function(req, res) {
 
+        res.locals.jira.getProjects(function(e, response){
+            // console.log(res.locals.jira);
 
-    show: function(req, res) {
-        console.log(jira);
-        res.view('settings/show', {
-            username: req.user[0].nickname
-        });
-    },
+            // console.log(response);
 
-    update: function(req, res) {
-        console.log('update', req.user);
-
-        User.findOne(req.user[0].id).done(function(error, u) {
-
-            if(error){
-                return res.send(403, { message: 'Not Authorized' });
+            if(e){
+                console.log(e);
+                return res.send('Get projects failed');
             }
 
-            console.log('user: ', u);
-            console.log('params: ', req.body);
+            // console.log(projects);
 
-            User.update({id: u.id}, req.body, function(err, user) {
-                console.log("error:", err, "user: ", user);
-                // Otherwise send a success message and a 200 status
-                if(!err){
-                    return res.send('success');
-                }
+            res.view('settings/show', {
+                username: req.user[0].nickname
             });
         });
-    },
+
+	},
+
+	update: function(req, res) {
+		User.findOne(req.user[0].id).done(function(error, u) {
+			if (error) {
+				return res.send(403, {
+					message: 'Not Authorized'
+				});
+			}
+			User.update({
+				id: u.id
+			}, req.body, function(err, user) {
+				if (!err) {
+					return res.send('success');
+				}
+			});
+		});
+	},
 
 
 
-  /**
-   * Overrides for the settings in `config/controllers.js`
-   * (specific to UserController)
-   */
-  _config: {}
+	/**
+	 * Overrides for the settings in `config/controllers.js`
+	 * (specific to UserController)
+	 */
+	_config: {}
 
 
 };

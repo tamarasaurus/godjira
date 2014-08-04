@@ -29,43 +29,43 @@
 
 module.exports.routes = {
 
-  // By default, your root route (aka home page) points to a view
-  // located at `views/home/index.ejs`
-  //
-  // (This would also work if you had a file at: `/views/home.ejs`)
-  '/': {
-    controller: 'DashboardController',
-    action: 'index'
-  },
+	// By default, your root route (aka home page) points to a view
+	// located at `views/home/index.ejs`
+	//
+	// (This would also work if you had a file at: `/views/home.ejs`)
+	'/': {
+		controller: 'DashboardController',
+		action: 'index'
+	},
 
-  '/project/:id': {
-    controller: 'ProjectController',
-    action: 'show'
-  },
+	'/project/:id': {
+		controller: 'ProjectController',
+		action: 'show'
+	},
 
-  '/project/:id/people': {
-    controller: 'PeopleController',
-    action: 'index'
-  },
+	'/project/:id/people': {
+		controller: 'PeopleController',
+		action: 'index'
+	},
 
-  '/people/:username': {
-    controller: 'PeopleController',
-    action: 'show'
-  },
+	'/people/:username': {
+		controller: 'PeopleController',
+		action: 'show'
+	},
 
-  'get /login': 'AuthController.login',
-  'post /login': 'AuthController.process',
-  'get /logout': 'AuthController.logout',
+	'get /login': 'AuthController.login',
+	'post /login': 'AuthController.process',
+	'get /logout': 'AuthController.logout',
 
-  'get /register': 'RegisterController.show',
-  'post /register': 'UserController.create',
-
-
-  'get /settings': 'SettingsController.show',
-  'post /settings': 'SettingsController.update'
+	'get /register': 'RegisterController.show',
+	'post /register': 'UserController.create',
 
 
-  /*
+	'get /settings': 'SettingsController.show',
+	'post /settings': 'SettingsController.update'
+
+
+	/*
   // But what if you want your home page to display
   // a signup form located at `views/user/signup.ejs`?
   '/': {
@@ -191,4 +191,4 @@ module.exports.routes = {
  *
  * Finally, if nothing else matched, the default 404 handler is triggered.
  * See `config/404.js` to adjust your app's 404 logic.
-*/
+ */
